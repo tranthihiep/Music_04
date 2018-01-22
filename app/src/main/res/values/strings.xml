@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Music 04</string>
+    <string name="search">Search...</string>
+    <string name="infor">Information</string>
+    <string name="textfeedback">This app is developer free. Please contact : </string>
+    <string name="description">It is content description</string>
 </resources>
