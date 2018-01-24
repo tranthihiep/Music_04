@@ -3,16 +3,20 @@ package com.framgia.music;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity {
+/**
+ * Created by trant on 22/01/2018.
+ */
 
+public class Feedback extends AppCompatActivity {
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.intent_feedback);
     }
 
     @Override
@@ -25,14 +29,14 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.menuHome:
+                Intent intentMain = new Intent(this, MainActivity.class);
+                startActivity(intentMain);
                 break;
             case R.id.menuIntentSearch:
                 Intent intentSearch = new Intent(this, Search.class);
                 startActivity(intentSearch);
                 break;
             case R.id.menuFeedback:
-                Intent intentFeedback = new Intent(this, Feedback.class);
-                startActivity(intentFeedback);
                 break;
             case R.id.menuExit:
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
