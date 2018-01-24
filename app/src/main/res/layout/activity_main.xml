@@ -133,7 +133,7 @@
             android:layout_weight="1"
             android:scaleType="fitXY"
             android:contentDescription="@string/description"
-            app:srcCompat="@drawable/b"
+            app:srcCompat="@drawable/delete"
             />
     </LinearLayout>
 

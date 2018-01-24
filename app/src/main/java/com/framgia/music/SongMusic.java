@@ -5,23 +5,23 @@ package com.framgia.music;
  */
 
 public class SongMusic {
-    private String id;
+    private int id;
     private String name;
     private String album;
     private int favorite;
 
-    public SongMusic(String id, String name, String album, int favorite) {
+    public SongMusic(int id, String name, String album, int favorite) {
         this.id = id;
         this.name = name;
         this.album = album;
         this.favorite = favorite;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
