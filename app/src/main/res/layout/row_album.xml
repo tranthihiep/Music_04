@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <TextView
+        android:id="@+id/txtNameRowAlbum"
+        android:layout_width="@dimen/dp_250"
+        android:layout_height="@dimen/dp_50"
+        android:layout_weight="1"
+        android:textSize="20sp"
+        />
+    <ImageView
+        android:id="@+id/btnEditRowAlbum"
+        android:layout_width="@dimen/dp_50"
+        android:layout_height="@dimen/dp_50"
+        android:layout_weight="1"
+        android:contentDescription="@string/description"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/edit"
+        />
+    <ImageView
+        android:id="@+id/btnDeleteRowAlbum"
+        android:layout_width="@dimen/dp_50"
+        android:layout_height="@dimen/dp_50"
+        android:layout_weight="1"
+        android:contentDescription="@string/description"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/delete"
+        />
+</LinearLayout>

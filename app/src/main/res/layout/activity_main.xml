@@ -14,7 +14,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:textColor="@color/colorRed"
-        android:textSize="@dimen/dp_30"
+        android:textSize="@dimen/sp_30"
         android:textStyle="bold"
         />
     <ImageView
@@ -34,7 +34,6 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/imageView"
-        android:layout_marginTop="@dimen/dp_50"
         />
     <TextView
         android:id="@+id/txtTimeCur"
@@ -43,10 +42,8 @@
         android:layout_alignBottom="@+id/seekBar"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="@dimen/dp_20"
-        android:layout_marginLeft="@dimen/dp_20"
         android:textColor="@color/colorBlack"
-        android:textSize="@dimen/dp_20"
+        android:textSize="@dimen/sp_20"
         />
     <TextView
         android:id="@+id/txtTotal"
@@ -56,15 +53,12 @@
         android:layout_alignBottom="@+id/txtTimeCur"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginEnd="@dimen/dp_20"
-        android:layout_marginRight="@dimen/dp_20"
         android:textColor="@android:color/black"
-        android:textSize="@dimen/dp_20"
+        android:textSize="20sp"
         />
     <LinearLayout
-        android:layout_marginLeft="@dimen/dp_80"
         android:layout_below="@+id/seekBar"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:id="@+id/linearLayout"
@@ -72,68 +66,58 @@
         <ImageView
             android:id="@+id/btnPre"
             android:contentDescription="@string/description"
-            android:layout_width="@dimen/dp_70"
-            android:layout_height="@dimen/dp_70"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="@dimen/dp_50"
             android:layout_weight="1"
-            android:scaleType="fitXY"
             app:srcCompat="@drawable/pre"
             />
         <ImageView
             android:id="@+id/btnPlay"
-            android:layout_width="@dimen/dp_70"
-            android:layout_height="@dimen/dp_70"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="@dimen/dp_50"
             android:layout_weight="1"
-            android:scaleType="fitXY"
             android:contentDescription="@string/description"
             app:srcCompat="@drawable/play"
             />
         <ImageView
             android:id="@+id/btnNext"
-            android:layout_width="@dimen/dp_70"
-            android:layout_height="@dimen/dp_70"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="@dimen/dp_50"
             android:layout_weight="1"
             android:contentDescription="@string/description"
-            android:scaleType="fitXY"
             app:srcCompat="@drawable/next"
             />
     </LinearLayout>
     <LinearLayout
-        android:layout_marginRight="@dimen/dp_50"
-        android:layout_marginLeft="@dimen/dp_50"
         android:layout_below="@id/linearLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
         android:orientation="horizontal"
 
         >
         <ImageView
-            android:layout_marginRight="@dimen/dp_50"
             android:id="@+id/btnAdd"
             android:contentDescription="@string/description"
-            android:layout_width="@dimen/dp_70"
-            android:layout_height="@dimen/dp_70"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="@dimen/dp_50"
             android:layout_weight="1"
-            android:scaleType="fitXY"
             app:srcCompat="@drawable/add"
             />
         <ImageView
-            android:layout_marginRight="@dimen/dp_50"
             android:id="@+id/btnFavorite"
-            android:layout_width="@dimen/dp_70"
-            android:layout_height="@dimen/dp_70"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="@dimen/dp_50"
             android:contentDescription="@string/description"
             android:layout_weight="1"
-            android:scaleType="fitXY"
             app:srcCompat="@drawable/favorite"
             />
         <ImageView
             android:id="@+id/btnDel"
-            android:layout_width="@dimen/dp_70"
-            android:layout_height="@dimen/dp_70"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="@dimen/dp_50"
             android:layout_weight="1"
-            android:scaleType="fitXY"
             android:contentDescription="@string/description"
-            app:srcCompat="@drawable/b"
+            app:srcCompat="@drawable/delete"
             />
     </LinearLayout>
 

@@ -4,4 +4,7 @@
     <string name="infor">Information</string>
     <string name="textfeedback">This app is developer free. Please contact : </string>
     <string name="description">It is content description</string>
+    <string name="add">Add</string>
+    <string name="cancel">Cancel</string>
+    <string name="input_album_new">Input album new</string>
 </resources>
