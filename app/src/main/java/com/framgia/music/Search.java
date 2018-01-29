@@ -55,9 +55,9 @@ public class Search extends AppCompatActivity implements OnFragmentInteractionLi
     }
 
     private void addTab(TabLayout tabLayout) {
-        tabLayout.addTab(mTabLayout.newTab().setText(SONG).setIcon(R.drawable.song));
-        tabLayout.addTab(mTabLayout.newTab().setText(ALBUM).setIcon(R.drawable.album));
-        tabLayout.addTab(mTabLayout.newTab().setText(FAVORITE).setIcon(R.drawable.favorite));
+        tabLayout.addTab(mTabLayout.newTab().setText(SONG).setIcon(R.drawable.ic_song));
+        tabLayout.addTab(mTabLayout.newTab().setText(ALBUM).setIcon(R.drawable.ic_album));
+        tabLayout.addTab(mTabLayout.newTab().setText(FAVORITE).setIcon(R.drawable.ic_favorite));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
     }
 

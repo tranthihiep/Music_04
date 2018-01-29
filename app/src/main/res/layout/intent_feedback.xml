@@ -38,7 +38,7 @@
         android:contentDescription="@string/description"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:srcCompat="@drawable/fb"
+        app:srcCompat="@drawable/ic_fb"
         />
     <ImageView
         android:id="@+id/g"
@@ -47,6 +47,6 @@
         android:contentDescription="@string/description"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:srcCompat="@drawable/google"
+        app:srcCompat="@drawable/ic_google"
         />
 </android.support.constraint.ConstraintLayout>

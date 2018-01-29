@@ -16,10 +16,16 @@ import java.util.ArrayList;
 public class AdapterAlbum extends RecyclerView.Adapter<AdapterAlbum.ViewHolder> {
     private ArrayList<Album> mAlbums;
     private Context mContext;
+    private OnItemClickListenner mListenner;
 
-    public AdapterAlbum(ArrayList<Album> albums, Context context) {
-        this.mAlbums = albums;
+    public AdapterAlbum(ArrayList<Album> albums, Context context, OnItemClickListenner onItem) {
         this.mContext = context;
+        this.mAlbums = albums;
+        this.mListenner = onItem;
+    }
+
+    public void setListenner(OnItemClickListenner listenner) {
+        mListenner = listenner;
     }
 
     @Override
@@ -31,7 +37,7 @@ public class AdapterAlbum extends RecyclerView.Adapter<AdapterAlbum.ViewHolder> 
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.setData(position);
+        holder.setData(position, mListenner);
     }
 
     @Override
@@ -50,20 +56,22 @@ public class AdapterAlbum extends RecyclerView.Adapter<AdapterAlbum.ViewHolder> 
             mImgDelete = (ImageView) itemView.findViewById(R.id.btnDeleteRowAlbum);
         }
 
-        public void setData(int pos) {
+        public void setData(final int pos, OnItemClickListenner listenner) {
+            mListenner = listenner;
             mTxtNameAlbum.setText(mAlbums.get(pos).getNameAlbum());
-            mImgEdit.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    //TODO
-                }
-            });
             mImgDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    //TODO
+                    mListenner.onClick(getAdapterPosition(), view);
+                }
+            });
+            mImgEdit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mListenner.onClick(getAdapterPosition(), view);
                 }
             });
         }
     }
 }
+

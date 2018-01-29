@@ -17,7 +17,7 @@
             android:layout_height="@dimen/sp_50"
             android:contentDescription="@string/description"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/add"
+            app:srcCompat="@drawable/ic_add"
             />
         <EditText
             android:id="@+id/edtFagSearchAlbum"

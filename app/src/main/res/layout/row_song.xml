@@ -4,25 +4,45 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     >
-
     <TextView
-        android:id="@+id/txtNameRowAlbum"
+        android:id="@+id/txtNameRowSong"
         android:layout_width="@dimen/dp_250"
         android:layout_height="@dimen/dp_50"
         android:layout_weight="1"
-        android:textSize="20sp"
+        android:textSize="@dimen/sp_20"
         />
     <ImageView
-        android:id="@+id/btnEditRowAlbum"
+        android:id="@+id/btnAddRowSong"
         android:layout_width="@dimen/dp_50"
         android:layout_height="@dimen/dp_50"
         android:layout_weight="1"
         android:contentDescription="@string/description"
         android:scaleType="centerCrop"
-        app:srcCompat="@drawable/ic_edit"
+        app:srcCompat="@drawable/ic_add"
         />
+    <FrameLayout
+        android:layout_width="@dimen/dp_50"
+        android:layout_height="@dimen/dp_50"
+        android:layout_weight="1"
+        >
+        <ImageView
+            android:id="@+id/btnFavRowSong"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="@dimen/dp_50"
+            android:contentDescription="@string/description"
+            app:srcCompat="@drawable/ic_favorite"
+            />
+
+        <ImageView
+            android:id="@+id/btnUnFavRowSong"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="@dimen/dp_50"
+            android:contentDescription="@string/description"
+            app:srcCompat="@drawable/ic_unfavorite"
+            />
+    </FrameLayout>
     <ImageView
-        android:id="@+id/btnDeleteRowAlbum"
+        android:id="@+id/btndelRowSong"
         android:layout_width="@dimen/dp_50"
         android:layout_height="@dimen/dp_50"
         android:layout_weight="1"
