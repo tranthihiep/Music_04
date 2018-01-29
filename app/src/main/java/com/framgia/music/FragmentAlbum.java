@@ -79,7 +79,7 @@ public class FragmentAlbum extends Fragment {
             @Override
             public void onClick(View view) {
                 if (edtAlbum.getText().toString().equals("")) {
-                    Toast.makeText(getContext(), "Please input album's name ", Toast.LENGTH_SHORT)
+                    Toast.makeText(getContext(),R.string.please_input_album_name, Toast.LENGTH_SHORT)
                             .show();
                 } else {
                     mDataAlbum.insertAlbumIntoTableAlbum(edtAlbum.getText().toString());

@@ -36,7 +36,7 @@ public class AlbumDataHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put("nameAlbum", nameAlbum);
         db.insert("TableAlbum", null, values);
-
+        db.close();
     }
 
     public ArrayList<Album> queryAlbum() {
@@ -45,9 +45,8 @@ public class AlbumDataHelper extends SQLiteOpenHelper {
         Cursor c = sqLiteDatabase.query("TableAlbum", null, null, null, null, null, null);
         c.moveToFirst();
         while (!c.isAfterLast()) {
-            int id = c.getInt(0);
-            String name = c.getString(1);
-            //c.getString(2);
+            int id = c.getInt(c.getColumnIndex("idAlbum"));
+            String name = c.getString(c.getColumnIndex("nameAlbum"));
             albums.add(new Album(id, name));
             c.moveToNext();
         }

@@ -109,7 +109,7 @@
             android:layout_height="@dimen/dp_50"
             android:contentDescription="@string/description"
             android:layout_weight="1"
-            app:srcCompat="@drawable/favorite"
+            app:srcCompat="@drawable/unfavorite"
             />
         <ImageView
             android:id="@+id/btnDel"

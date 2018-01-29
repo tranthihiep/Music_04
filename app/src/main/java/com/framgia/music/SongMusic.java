@@ -5,47 +5,57 @@ package com.framgia.music;
  */
 
 public class SongMusic {
-    private String id;
-    private String name;
-    private String album;
-    private int favorite;
+    private int mId;
+    private String mName;
+    private String mPath;
+    private int idAlbum;
+    private int mFavorite;
 
-    public SongMusic(String id, String name, String album, int favorite) {
-        this.id = id;
-        this.name = name;
-        this.album = album;
-        this.favorite = favorite;
+    public SongMusic(int id, String name, String path, int idAlbum, int favorite) {
+        mId = id;
+        mName = name;
+        mPath = path;
+        this.idAlbum = idAlbum;
+        mFavorite = favorite;
     }
 
-    public String getId() {
-        return id;
+    public int getId() {
+        return mId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setId(int id) {
+        mId = id;
     }
 
     public String getName() {
-        return name;
+        return mName;
     }
 
     public void setName(String name) {
-        this.name = name;
+        mName = name;
     }
 
-    public String getAlbum() {
-        return album;
+    public String getPath() {
+        return mPath;
     }
 
-    public void setAlbum(String album) {
-        this.album = album;
+    public void setPath(String path) {
+        mPath = path;
+    }
+
+    public int getIdAlbum() {
+        return idAlbum;
+    }
+
+    public void setIdAlbum(int idAlbum) {
+        this.idAlbum = idAlbum;
     }
 
     public int getFavorite() {
-        return favorite;
+        return mFavorite;
     }
 
     public void setFavorite(int favorite) {
-        this.favorite = favorite;
+        mFavorite = favorite;
     }
 }

@@ -39,7 +39,7 @@ public class AdapterAlbum extends RecyclerView.Adapter<AdapterAlbum.ViewHolder> 
         return mAlbums.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView mTxtNameAlbum;
         private ImageView mImgEdit, mImgDelete;
 
@@ -52,18 +52,13 @@ public class AdapterAlbum extends RecyclerView.Adapter<AdapterAlbum.ViewHolder> 
 
         public void setData(int pos) {
             mTxtNameAlbum.setText(mAlbums.get(pos).getNameAlbum());
-            mImgEdit.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    //TODO
-                }
-            });
-            mImgDelete.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    //TODO
-                }
-            });
+            mImgEdit.setOnClickListener(this);
+            mImgDelete.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            //TODO
         }
     }
 }
