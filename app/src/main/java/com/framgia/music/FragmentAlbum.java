@@ -20,7 +20,7 @@ import java.util.ArrayList;
  * Created by trant on 20/01/2018.
  */
 
-public class FragmentAlbum extends Fragment {
+public class FragmentAlbum extends Fragment implements OnItemClickListenner {
     private RecyclerView mRecyclerAlbum;
     private ArrayList<Album> mArrayAlbum;
     private AdapterAlbum mAdapterAlbum;
@@ -35,7 +35,7 @@ public class FragmentAlbum extends Fragment {
         mRecyclerAlbum = (RecyclerView) view.findViewById(R.id.recyclerAlbum);
         mEdtNameAlbum = (EditText) view.findViewById(R.id.edtFagSearchAlbum);
         mBtnAddAlbum = (ImageView) view.findViewById(R.id.btnFagAddAlbum);
-        mDataAlbum = new AlbumDataHelper(getContext(), "haha.db", null, 1);
+        mDataAlbum = new AlbumDataHelper(getContext());
         mArrayAlbum = new ArrayList<>();
         setRecyclerAlbum();
         mBtnAddAlbum.setOnClickListener(new View.OnClickListener() {
@@ -57,7 +57,7 @@ public class FragmentAlbum extends Fragment {
 
     private void fillListAlbumToList() {
         mArrayAlbum = mDataAlbum.queryAlbum();
-        mAdapterAlbum = new AdapterAlbum(mArrayAlbum, getContext());
+        mAdapterAlbum = new AdapterAlbum(mArrayAlbum, getContext(), this);
         mRecyclerAlbum.setAdapter(mAdapterAlbum);
         mAdapterAlbum.notifyDataSetChanged();
     }
@@ -79,8 +79,8 @@ public class FragmentAlbum extends Fragment {
             @Override
             public void onClick(View view) {
                 if (edtAlbum.getText().toString().equals("")) {
-                    Toast.makeText(getContext(), "Please input album's name ", Toast.LENGTH_SHORT)
-                            .show();
+                    Toast.makeText(getContext(), R.string.please_input_album_name,
+                            Toast.LENGTH_SHORT).show();
                 } else {
                     mDataAlbum.insertAlbumIntoTableAlbum(edtAlbum.getText().toString());
                     fillListAlbumToList();
@@ -90,4 +90,17 @@ public class FragmentAlbum extends Fragment {
         });
         mDialog.show();
     }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btnDeleteRowAlbum:
+                //TODO
+                break;
+            case R.id.btnEditRowAlbum:
+                //TODO
+                break;
+        }
+    }
 }
+

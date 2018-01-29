@@ -4,27 +4,27 @@ package com.framgia.music;
  * Created by trant on 25/01/2018.
  */
 public class Album {
-    private int idAlbum;
-    private String nameAlbum;
+    private int mIdAlbum;
+    private String mNameAlbum;
 
     public Album(int idAlbum, String nameAlbum) {
-        this.idAlbum = idAlbum;
-        this.nameAlbum = nameAlbum;
+        this.mIdAlbum = idAlbum;
+        this.mNameAlbum = nameAlbum;
     }
 
     public int getIdAlbum() {
-        return idAlbum;
+        return mIdAlbum;
     }
 
     public void setIdAlbum(int idAlbum) {
-        this.idAlbum = idAlbum;
+        this.mIdAlbum = idAlbum;
     }
 
     public String getNameAlbum() {
-        return nameAlbum;
+        return mNameAlbum;
     }
 
     public void setNameAlbum(String nameAlbum) {
-        this.nameAlbum = nameAlbum;
+        this.mNameAlbum = nameAlbum;
     }
 }

@@ -16,17 +16,23 @@ import java.util.ArrayList;
 public class AdapterAlbum extends RecyclerView.Adapter<AdapterAlbum.ViewHolder> {
     private ArrayList<Album> mAlbums;
     private Context mContext;
+    private OnItemClickListenner mListenner;
 
-    public AdapterAlbum(ArrayList<Album> albums, Context context) {
-        this.mAlbums = albums;
+    public AdapterAlbum(ArrayList<Album> albums, Context context, OnItemClickListenner onItem) {
         this.mContext = context;
+        this.mAlbums = albums;
+        this.mListenner = onItem;
+    }
+
+    public void setListenner(OnItemClickListenner listenner) {
+        mListenner = listenner;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View itemView = layoutInflater.inflate(R.layout.row_album, parent, false);
-        return new ViewHolder(itemView);
+        return new ViewHolder(itemView, mListenner);
     }
 
     @Override
@@ -43,8 +49,9 @@ public class AdapterAlbum extends RecyclerView.Adapter<AdapterAlbum.ViewHolder> 
         private TextView mTxtNameAlbum;
         private ImageView mImgEdit, mImgDelete;
 
-        public ViewHolder(View itemView) {
+        public ViewHolder(View itemView, OnItemClickListenner listenner) {
             super(itemView);
+            mListenner = listenner;
             mTxtNameAlbum = (TextView) itemView.findViewById(R.id.txtNameRowAlbum);
             mImgEdit = (ImageView) itemView.findViewById(R.id.btnEditRowAlbum);
             mImgDelete = (ImageView) itemView.findViewById(R.id.btnDeleteRowAlbum);
@@ -52,18 +59,20 @@ public class AdapterAlbum extends RecyclerView.Adapter<AdapterAlbum.ViewHolder> 
 
         public void setData(int pos) {
             mTxtNameAlbum.setText(mAlbums.get(pos).getNameAlbum());
-            mImgEdit.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    //TODO
-                }
-            });
             mImgDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    //TODO
+                    mListenner.onClick(view);
+                }
+            });
+            mImgEdit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mListenner.onClick(view);
                 }
             });
         }
     }
 }
+
+
