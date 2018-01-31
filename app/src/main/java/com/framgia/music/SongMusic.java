@@ -11,12 +11,12 @@ public class SongMusic {
     private int idAlbum;
     private int mFavorite;
 
-    public SongMusic(int id, String name, String path, int idAlbum, int favorite) {
-        mId = id;
-        mName = name;
-        mPath = path;
+    public SongMusic(int id, String name, String path, int favorite, int idAlbum) {
+        this.mId = id;
+        this.mName = name;
+        this.mPath = path;
         this.idAlbum = idAlbum;
-        mFavorite = favorite;
+        this.mFavorite = favorite;
     }
 
     public int getId() {

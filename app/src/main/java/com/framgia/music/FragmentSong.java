@@ -55,6 +55,12 @@ public class FragmentSong extends Fragment implements OnItemClickListenner {
             case R.id.btnAddRowSong:
                 //TODO
                 break;
+            case R.id.btnUnFavRowSong:
+
+                break;
+            case R.id.btnFavRowSong:
+
+                break;
         }
     }
 }

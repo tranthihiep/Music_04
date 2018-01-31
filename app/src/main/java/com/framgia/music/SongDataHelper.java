@@ -23,6 +23,7 @@ public class SongDataHelper extends SQLiteOpenHelper {
     public static final String KEY_ID_ALBUM_TB_SONG = "idAlbum";
     public static final String DATA_NAME = "Data.db";
     private static final int DATABASE_VERSION = 1;
+
     public SongDataHelper(Context context) {
         super(context, DATA_NAME, null, DATABASE_VERSION);
     }
@@ -138,5 +139,30 @@ public class SongDataHelper extends SQLiteOpenHelper {
         c.close();
         sqLiteDatabase.close();
         return songMusics;
+    }
+
+    public void update(int fav, int id) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_FAVORITE, fav);
+        sqLiteDatabase.update(TABLE_SONG, values, KEY_ID_SONG + " = " + id, null);
+    }
+    public ArrayList<SongMusic> getListSongFavorite() {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        ArrayList<SongMusic> songSearchs = new ArrayList<>();
+        Cursor c = sqLiteDatabase.rawQuery("SELECT * FROM " + TABLE_SONG + " WHERE "+ KEY_FAVORITE + " = 1 ",null);
+        c.moveToFirst();
+        while (!c.isAfterLast()) {
+            int id = c.getInt(c.getColumnIndex(KEY_ID_SONG));
+            String name = c.getString(c.getColumnIndex(KEY_NAME_SONG));
+            String path = c.getString(c.getColumnIndex(KEY_PATH_SONG));
+            int favorite = c.getInt(c.getColumnIndex(KEY_FAVORITE));
+            int idAlbum = c.getInt(c.getColumnIndex(KEY_ID_ALBUM_TB_SONG));
+            songSearchs.add(new SongMusic(id, name, path, favorite, idAlbum));
+            c.moveToNext();
+        }
+        c.close();
+        sqLiteDatabase.close();
+        return songSearchs;
     }
 }

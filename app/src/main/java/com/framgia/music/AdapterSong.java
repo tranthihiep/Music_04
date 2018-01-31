@@ -16,7 +16,7 @@ public class AdapterSong extends RecyclerView.Adapter<AdapterSong.ViewHolder> {
     private Context mContext;
     private ArrayList<SongMusic> mSongs;
     private OnItemClickListenner mListenner;
-
+    private SongDataHelper mSongDataHelper;
     public AdapterSong(ArrayList<SongMusic> songMusics, Context context,
             OnItemClickListenner onItem) {
         mSongs = songMusics;
@@ -32,6 +32,7 @@ public class AdapterSong extends RecyclerView.Adapter<AdapterSong.ViewHolder> {
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View itemView = layoutInflater.inflate(R.layout.row_song, parent, false);
+        mSongDataHelper = new SongDataHelper(mContext);
         return new ViewHolder(itemView);
     }
 
@@ -61,10 +62,19 @@ public class AdapterSong extends RecyclerView.Adapter<AdapterSong.ViewHolder> {
         public void setData(final int pos, OnItemClickListenner listenner) {
             mListenner = listenner;
             mTxtNameSong.setText(mSongs.get(pos).getName());
+            int favorite = mSongs.get(pos).getFavorite();
+            if (favorite == 0){
+                mImgFavorite.setVisibility(View.INVISIBLE);
+                mUnImgFavorite.setVisibility(View.VISIBLE);
+            }else {
+                mUnImgFavorite.setVisibility(View.INVISIBLE);
+                mImgFavorite.setVisibility(View.VISIBLE);
+            }
             mImgDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     mListenner.onClick(getAdapterPosition(), view);
+
                 }
             });
             mImgAdd.setOnClickListener(new View.OnClickListener() {
@@ -77,14 +87,22 @@ public class AdapterSong extends RecyclerView.Adapter<AdapterSong.ViewHolder> {
                 @Override
                 public void onClick(View view) {
                     mListenner.onClick(getAdapterPosition(), view);
+                    mSongDataHelper.update(1,mSongs.get(pos).getId());
+                    mImgFavorite.setVisibility(View.VISIBLE);
+                    mUnImgFavorite.setVisibility(View.INVISIBLE);
                 }
             });
             mImgFavorite.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     mListenner.onClick(getAdapterPosition(), view);
+                    mSongDataHelper.update(0,mSongs.get(pos).getId());
+                    mImgFavorite.setVisibility(View.INVISIBLE);
+                    mUnImgFavorite.setVisibility(View.VISIBLE);
                 }
             });
+
+
         }
     }
 }
