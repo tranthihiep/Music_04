@@ -7,6 +7,10 @@
     <dimen name="sp_80">80sp</dimen>
     <dimen name="dp_50">50dp</dimen>
     <dimen name="dp_20">20dp</dimen>
+    <dimen name="dp_10">10dp</dimen>
+    <dimen name="dp_300">300dp</dimen>
 </resources>
+
+
 
 

@@ -11,7 +11,7 @@ public class SongMusic {
     private int idAlbum;
     private int mFavorite;
 
-    public SongMusic(int id, String name, String path, int idAlbum, int favorite) {
+    public SongMusic(int id, String name, String path, int favorite, int idAlbum) {
         mId = id;
         mName = name;
         mPath = path;
@@ -59,3 +59,5 @@ public class SongMusic {
         mFavorite = favorite;
     }
 }
+
+

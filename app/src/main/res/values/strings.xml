@@ -8,4 +8,7 @@
     <string name="cancel">Cancel</string>
     <string name="input_album_new">Input album new</string>
     <string name="please_input_album_name">Please input album name</string>
+    <string name="Open">Open</string>
+    <string name="Close">Close</string>
 </resources>
+
