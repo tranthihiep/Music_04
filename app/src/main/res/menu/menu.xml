@@ -5,22 +5,25 @@
 
     <item
         android:id="@+id/menuHome"
-        android:icon="@drawable/ic_menu"
+        android:icon="@drawable/ic_home"
         android:title="Home">
 
     </item>
     <item
         android:id="@+id/menuIntentSearch"
+        android:icon="@drawable/ic_search"
         android:title="Search by">
 
     </item>
     <item
         android:id="@+id/menuFeedback"
+        android:icon="@drawable/ic_feedback"
         android:title="Feedback">
 
     </item>
     <item
         android:id="@+id/menuExit"
+        android:icon="@drawable/ic_exit"
         android:title="Exit">
 
     </item>

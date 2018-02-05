@@ -3,4 +3,7 @@
     <color name="colorBlack">#000000</color>
     <color name="colorRed">#fa030f</color>
     <color name="colorBlue">#0039e2</color>
+    <color name="colorBackground">#15d468</color>
+    <color name="colorOrange">#e76e04</color>
 </resources>
+
