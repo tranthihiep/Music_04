@@ -1,4 +1,4 @@
-package com.framgia.music;
+package com.framgia.music.data.model;
 
 /**
  * Created by trant on 25/01/2018.

@@ -5,20 +5,12 @@
     android:layout_height="wrap_content"
     >
     <TextView
-        android:id="@+id/txtNameRowSong"
+        android:id="@+id/txtNameRowFavorite"
         android:layout_width="@dimen/dp_250"
         android:layout_height="@dimen/dp_50"
         android:layout_weight="1"
         android:textColor="@color/colorBlack"
         android:textSize="@dimen/sp_20"
-        />
-    <ImageView
-        android:id="@+id/btnAddRowSong"
-        android:layout_width="@dimen/dp_50"
-        android:layout_height="@dimen/dp_50"
-        android:layout_weight="1"
-        android:contentDescription="@string/description"
-        app:srcCompat="@drawable/ic_add"
         />
     <FrameLayout
         android:layout_width="@dimen/dp_50"
@@ -26,7 +18,7 @@
         android:layout_weight="1"
         >
         <ImageView
-            android:id="@+id/btnFavRowSong"
+            android:id="@+id/btnFavRowFavorite"
             android:layout_width="@dimen/dp_50"
             android:layout_height="@dimen/dp_50"
             android:contentDescription="@string/description"
@@ -34,19 +26,12 @@
             />
 
         <ImageView
-            android:id="@+id/btnUnFavRowSong"
+            android:id="@+id/btnUnFavRowFavorite"
             android:layout_width="@dimen/dp_50"
             android:layout_height="@dimen/dp_50"
             android:contentDescription="@string/description"
             app:srcCompat="@drawable/ic_unfavorite"
             />
     </FrameLayout>
-    <ImageView
-        android:id="@+id/btndelRowSong"
-        android:layout_width="@dimen/dp_50"
-        android:layout_height="@dimen/dp_50"
-        android:layout_weight="1"
-        android:contentDescription="@string/description"
-        app:srcCompat="@drawable/ic_delete"
-        />
+
 </LinearLayout>

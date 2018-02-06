@@ -1,4 +1,4 @@
-package com.framgia.music;
+package com.framgia.music.ui.fragment;
 
 import android.app.Dialog;
 import android.os.Bundle;
@@ -14,6 +14,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+import com.framgia.music.data.model.Album;
+import com.framgia.music.util.OnItemClickListenner;
+import com.framgia.music.R;
+import com.framgia.music.data.local.SongDataHelper;
+import com.framgia.music.ui.adapter.AdapterAlbum;
 import java.util.ArrayList;
 
 /**
@@ -24,7 +29,7 @@ public class FragmentAlbum extends Fragment implements OnItemClickListenner {
     private RecyclerView mRecyclerAlbum;
     private ArrayList<Album> mArrayAlbum;
     private AdapterAlbum mAdapterAlbum;
-    private AlbumDataHelper mDataAlbum;
+    private SongDataHelper mDataAlbum;
     private EditText mEdtNameAlbum;
     private ImageView mBtnAddAlbum;
     private Dialog mDialog;
@@ -33,9 +38,8 @@ public class FragmentAlbum extends Fragment implements OnItemClickListenner {
             Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_album, container, false);
         mRecyclerAlbum = (RecyclerView) view.findViewById(R.id.recyclerAlbum);
-        mEdtNameAlbum = (EditText) view.findViewById(R.id.edtFagSearchAlbum);
         mBtnAddAlbum = (ImageView) view.findViewById(R.id.btnFagAddAlbum);
-        mDataAlbum = new AlbumDataHelper(getContext());
+        mDataAlbum = new SongDataHelper(getContext());
         mArrayAlbum = new ArrayList<>();
         setRecyclerAlbum();
         mBtnAddAlbum.setOnClickListener(new View.OnClickListener() {
@@ -64,8 +68,8 @@ public class FragmentAlbum extends Fragment implements OnItemClickListenner {
 
     private void dialogAddAlbum() {
         mDialog = new Dialog(getContext());
-        mDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         mDialog.setContentView(R.layout.dialog_add_album);
+        mDialog.setTitle(R.string.add_album);
         final EditText edtAlbum = mDialog.findViewById(R.id.edtDialog);
         Button btnAdd = mDialog.findViewById(R.id.btnAddDialog);
         Button btnCancel = mDialog.findViewById(R.id.btnCancelDialog);
@@ -95,9 +99,7 @@ public class FragmentAlbum extends Fragment implements OnItemClickListenner {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btnDeleteRowAlbum:
-                //TODO
-                break;
-            case R.id.btnEditRowAlbum:
+                fillListAlbumToList();
                 //TODO
                 break;
         }

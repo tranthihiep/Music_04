@@ -1,4 +1,4 @@
-package com.framgia.music;
+package com.framgia.music.util;
 
 import android.view.View;
 

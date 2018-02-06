@@ -1,4 +1,4 @@
-package com.framgia.music;
+package com.framgia.music.ui.activity;
 
 import android.Manifest;
 import android.content.Intent;
@@ -21,6 +21,9 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import com.framgia.music.R;
+import com.framgia.music.data.local.SongDataHelper;
+import com.framgia.music.data.model.SongMusic;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Locale;
@@ -39,20 +42,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private SeekBar mSeekBar;
     private int mPos = 0;
     private MediaPlayer mMediaPlayer;
-    private ImageView mbtnFavorite;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initPermission();
         mAnimation = AnimationUtils.loadAnimation(this, R.anim.anim);
-        setDrawerLayout();
         initView();
+        initPermission();
+        setDrawerLayout();
         setClickNavigationView();
-        addSong();
-        setbtn();
-        initMedia();
     }
 
     private void setDrawerLayout() {
@@ -94,19 +93,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 });
     }
 
-    private void setbtn() {
-        if (arraySong.get(mPos).getFavorite() == 0) {
-            mbtnFavorite.setImageResource(R.drawable.ic_unfavorite);
-        } else {
-            mbtnFavorite.setImageResource(R.drawable.ic_favorite);
-        }
-    }
-
-    private void addSong() {
-        arraySong = new ArrayList<>();
-        arraySong = mSongDataHelper.getListSongFinal();
-    }
-
     private void initView() {
         txtNameSong = (TextView) findViewById(R.id.txtNameSong);
         mBtnNext = (ImageView) findViewById(R.id.btnNext);
@@ -116,11 +102,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mTxtTimeTotal = (TextView) findViewById(R.id.txtTotal);
         mTxtTimeCurrent = (TextView) findViewById(R.id.txtTimeCur);
         mSeekBar = (SeekBar) findViewById(R.id.seekBar);
-        mbtnFavorite = (ImageView) findViewById(R.id.btnFavorite);
-        mbtnFavorite.setOnClickListener(this);
         mBtnPlay.setOnClickListener(this);
         mBtnPrevious.setOnClickListener(this);
         mBtnNext.setOnClickListener(this);
+        arraySong = new ArrayList<>();
+        mImageView.startAnimation(mAnimation);
     }
 
     private void setSeekBar() {
@@ -148,17 +134,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()) {
             case R.id.btnPlay:
                 onPlayMusic();
-                setbtn();
                 break;
             case R.id.btnNext:
                 onNextSongs();
-                setbtn();
                 break;
             case R.id.btnPre:
                 onPeriousSongs();
-                setbtn();
-                break;
-            case R.id.btnFavorite:
                 break;
         }
     }
@@ -194,10 +175,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void onPlayMusic() {
+
         if (mMediaPlayer.isPlaying()) {
             mMediaPlayer.pause();
             mBtnPlay.setImageResource(R.drawable.ic_play);
         } else {
+            initMedia();
             mMediaPlayer.start();
             mBtnPlay.setImageResource(R.drawable.ic_pause);
             setTimeTotal();
@@ -209,7 +192,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mMediaPlayer =
                 MediaPlayer.create(MainActivity.this, Uri.parse(arraySong.get(mPos).getPath()));
         txtNameSong.setText(arraySong.get(mPos).getName());
-        mImageView.startAnimation(mAnimation);
+
     }
 
     private void setTimeTotal() {
@@ -261,6 +244,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else {
             mSongDataHelper = new SongDataHelper(this);
             mSongDataHelper.initListSong();
+            arraySong = mSongDataHelper.getListSongFromDatabase();
+            initMedia();
         }
     }
 }

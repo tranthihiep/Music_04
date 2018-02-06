@@ -6,19 +6,11 @@
     >
 
     <TextView
-        android:textColor="@color/colorBlack"
         android:id="@+id/txtNameRowAlbum"
         android:layout_width="@dimen/dp_250"
         android:layout_height="@dimen/dp_50"
         android:layout_weight="1"
         android:textSize="20sp"
-        />
-    <ImageView
-        android:id="@+id/btnDeleteRowAlbum"
-        android:layout_width="@dimen/dp_50"
-        android:layout_height="@dimen/dp_50"
-        android:layout_weight="1"
-        android:contentDescription="@string/description"
-        app:srcCompat="@drawable/ic_delete"
+        android:textColor="@color/colorBlack"
         />
 </LinearLayout>

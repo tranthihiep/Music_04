@@ -1,8 +1,11 @@
-package com.framgia.music;
+package com.framgia.music.ui.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import com.framgia.music.ui.fragment.FragmentAlbum;
+import com.framgia.music.ui.fragment.FragmentFavorite;
+import com.framgia.music.ui.fragment.FragmentSong;
 
 /**
  * Created by trant on 22/01/2018.

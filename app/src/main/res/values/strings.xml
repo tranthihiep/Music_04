@@ -10,5 +10,10 @@
     <string name="please_input_album_name">Please input album name</string>
     <string name="Open">Open</string>
     <string name="Close">Close</string>
+    <string name="input_feedback">Please input feedback</string>
+    <string name="send">Send</string>
+    <string name="danh_sach_bai_hat">Danh sách bài hát</string>
+    <string name="danh_sach_album">Danh sách Album</string>
+    <string name="add_album">Add album</string>
 </resources>
 

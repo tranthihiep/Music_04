@@ -16,16 +16,7 @@
             android:layout_width="@dimen/sp_50"
             android:layout_height="@dimen/sp_50"
             android:contentDescription="@string/description"
-            android:scaleType="centerCrop"
             app:srcCompat="@drawable/ic_add"
-            />
-        <EditText
-            android:id="@+id/edtFagSearchAlbum"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/sp_80"
-            android:ems="10"
-            android:hint="@string/search"
-            android:inputType="textPersonName"
             />
     </LinearLayout>
     <android.support.v7.widget.RecyclerView
